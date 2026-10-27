@@ -1,3 +1,4 @@
+b3c65185f1d68e6969a5d18044e70fcf  neoram-utils.d64
 355e501cb8c7f56ce1e915533a1a3624  geodiag64-v1.4.prg
 a42ff9328b848169272fa7529d748bd1  geodiag128-v1.4.prg
-46dbe7e7a55fc62c10d2a29d08d71eec  geodiag64.d64
+960de53a8003f3c0325ab9b9fc1c42a2  neocopy-v1.1.prg
