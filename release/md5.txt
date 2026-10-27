@@ -1,0 +1,3 @@
+97abfb3387b6b3c4f3bb2ee5fc317736  geodiag64-v1.3.prg
+a299505ae9de8f94b2a06f91b887fc54  geodiag128-v1.3.prg
+7871bac58b2986e5f931880caa48a2da  geodiag64.d64
