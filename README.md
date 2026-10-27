@@ -92,9 +92,6 @@ Reflow each pin it names, with flux, pressing the lead down onto its pad. With a
 (not its pad) should beep through to the same pin on a good chip. On other cards the data bit is still
 right, but the chip names and pin numbers may not be.
 
-It was written to find real faults: on a 2 MB NeoRAM Remix it named U2 pins 17-19 and U4 pins 14-15 as
-open, and after those joints were reflowed every chip passed.
-
 ### Retention (menus 8 and 9)
 
 Step 1 fills the card and checks it right away. Turn the machine off for a minute, an hour or a night,
