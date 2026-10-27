@@ -29,10 +29,6 @@ One disk, two tools for a **GeoRAM**, **NeoRAM** or compatible RAM expansion (su
 The same programs are in [`release/`](release) as PRGs (`geodiag64-v1.4.prg`, `geodiag128-v1.4.prg`,
 `neocopy-v1.1.prg`), with their BASIC listings.
 
-**On an Ultimate II+ with its I/O lines switched off** (for example on an expansion port expander, so
-a real GeoRAM can use `$DE00`-`$DFFF`), the Ultimate cannot run a PRG directly: mount the D64 and load
-from its drive instead.
-
 ---
 
 ## GEODIAG
