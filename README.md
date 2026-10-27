@@ -177,16 +177,6 @@ DATA lines after it, built by a Python script:
 [`src/asm.py`](src/asm.py) is the small assembler from [MeshCore 64](https://github.com/pskerrett/meshcore64).
 The build is reproducible: it gives the files in `release/` byte for byte.
 
-## Tested
-
-- VICE (C64), GEODIAG: GeoRAMs of 512 KB and 2 MB, menu keys 1-5, and a data line fault injected into
-  one chip (the screenshots above).
-- VICE (C64), NEOCOPY: on a blank 2 MB GeoRAM, install, format, start, a source disk on drive 9 listed,
-  a small BASIC program and a 42 KB program copied, the drive listed, then `LOAD"$",2` and the copied
-  program loaded and RUN from device 2. The menu loads both tools.
-- A real C64 with two 2 MB NeoRAM Remix cards (GEODIAG 1.3): one with a battery holder fitted backwards
-  (found by the retention test), one with open data pin joints (found by the RAM pin test).
-
 ## Credits and licence
 
 NeoRAM-Drive V0.40 is © 2007, 2008 Martin Wendt / enthusi (Onslaught), released under the GNU General
