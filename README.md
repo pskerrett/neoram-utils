@@ -5,15 +5,15 @@ Ultimate II+'s GeoRAM emulation). It finds the card's size, checks every data li
 registers, tests every byte, and for a bad card says **which RAM chip and which pins** are not
 making contact, with a drawing of the chip.
 
-Version 1.3. A BASIC program with a small machine-code helper, for C64 mode and for C128 mode.
+Version 1.4. A BASIC program with a small machine-code helper, for C64 mode and for C128 mode.
 
 ## Files
 
 | file | what |
 |---|---|
 | [`release/geodiag64.d64`](release/geodiag64.d64) | a disk with one file, `geodiag` (the C64 version): `LOAD"GEODIAG",8` then `RUN` |
-| [`release/geodiag64-v1.3.prg`](release/geodiag64-v1.3.prg) | the C64 version as a PRG |
-| [`release/geodiag128-v1.3.prg`](release/geodiag128-v1.3.prg) | the C128 version (C128 mode, `$1C01`); adds a full test at 2 MHz |
+| [`release/geodiag64-v1.4.prg`](release/geodiag64-v1.4.prg) | the C64 version as a PRG |
+| [`release/geodiag128-v1.4.prg`](release/geodiag128-v1.4.prg) | the C128 version (C128 mode, `$1C01`); adds a full test at 2 MHz |
 | `release/geodiag64.bas`, `geodiag128.bas` | the BASIC listings, for reading |
 
 **On an Ultimate II+ with its I/O lines switched off** (for example on an expansion port expander, so a
@@ -34,11 +34,11 @@ Then the menu:
 
 | key | test | the card's contents |
 |---|---|---|
-| `1` | **full test**, every byte: each page is saved, filled with `$55`, `$AA` and an address pattern, checked and put back | kept |
-| `2` | the same at **2 MHz** (C128 only, FAST mode) | kept |
-| `3` | **read stability**: one byte read 65536 times, counting reads that differ from the first | kept |
-| `4` | **look at a page** in hex | kept |
-| `5` | **each chip, one at a time**: see below | kept |
+| `1` | **test all RAM pins**, each chip in turn: see below. Start here | kept |
+| `2` | **full test**, every byte: each page is saved, filled with `$55`, `$AA` and an address pattern, checked and put back | kept |
+| `3` | the same at **2 MHz** (C128 only, FAST mode) | kept |
+| `4` | **read stability**: one byte read 65536 times, counting reads that differ from the first | kept |
+| `5` | **look at a page** in hex | kept |
 | `6` | the quick checks again | kept |
 | `7` | **whole-card test**: every byte gets a value of its own, and only then is it all read back, so a write that lands in the wrong place shows. Twice (the second time inverted), then 65536 random accesses; repeats until STOP | **erased** |
 | `8` | **retention, step 1**: writes a pattern over the whole card and checks it. Then turn the machine off | **erased** |
@@ -50,9 +50,9 @@ holds them through a power-off). The error report lists the error count, glitche
 right on the next), which data bits were wrong, the first 16 errors (block, page, offset, wrote, read)
 and a map of the blocks with errors.
 
-### Each chip, one at a time (menu 5)
+### Test all RAM pins (menu 1)
 
-A card is built from 512 KB chips, one per 32 blocks. Menu 5 writes one byte in each chip with walking
+A card is built from 512 KB chips, one per 32 blocks. Menu 1 writes one byte in each chip with walking
 1s and 0s (twice) and its own value, and reports each chip:
 
 - `ok`;
@@ -106,4 +106,4 @@ the C128. The build is reproducible: it gives the files in `release/` byte for b
 
 - VICE (C64) with emulated GeoRAMs, including data line faults injected into single chips.
 - A real C64 with two 2 MB NeoRAM Remix cards: one with a battery holder fitted backwards (found by the
-  retention test), one with open data pin joints (found by menu 5).
+  retention test), one with open data pin joints (found by the RAM pin test).

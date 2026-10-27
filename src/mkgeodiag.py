@@ -506,26 +506,26 @@ BASIC = r"""
 505 ls=1:v=sz
 506 if v>1 then v=v/2:ls=ls+1:goto 506
 510 print:if sz<32 then print " (expected 512 KB, 1 MB, 2 MB or 4 MB)":fl=1
-520 print:if fl then print "** Faults found above. **":print "Menu 5 tests each chip.":goto 540
+520 print:if fl then print "** Faults found above. **":print "Menu 1 tests all RAM pins.":goto 540
 530 print "Quick checks passed."
 540 print "Press a key.":gosub 9500
 600 rem --- menu
 610 print chr$(147)"GeoRAM / NeoRAM diagnostics {VER}":print:print " card:"kb"KB,"sz"blocks":print
-620 print " 1  full test, every byte (1 MHz)"
-630 if c8 then print " 2  full test at 2 MHz (FAST)"
-640 print " 3  read stability (65536 reads)"
-650 print " 4  look at a page (hex)"
-660 print " 5  each chip, one at a time"
+620 print " 1  test all RAM pins (each chip)"
+630 print " 2  full test, every byte (1 MHz)"
+640 if c8 then print " 3  full test at 2 MHz (FAST)"
+650 print " 4  read stability (65536 reads)"
+660 print " 5  look at a page (hex)"
 662 print " 6  quick checks again"
 664 print " 7  whole-card test (ERASES the card)"
 666 print " 8  retention, step 1: write (ERASES)"
 668 print " 9  retention, step 2: check":print
 670 print " 1-6 keep what is on the card.":print " Q  quit"
-680 gosub 9500:if k$="1" then f2=0:goto 700
-681 if k$="2" and c8 then f2=1:goto 700
-682 if k$="3" then 1000
-683 if k$="4" then 1200
-684 if k$="5" then 4000
+680 gosub 9500:if k$="1" then 4000
+681 if k$="2" then f2=0:goto 700
+682 if k$="3" and c8 then f2=1:goto 700
+683 if k$="4" then 1000
+684 if k$="5" then 1200
 685 if k$="6" then 100
 686 if k$="7" then 2500
 687 if k$="8" then 3000
@@ -653,7 +653,7 @@ BASIC = r"""
 3260 if r=1 and sz>32 then print:print "One chip only: that RAM chip, its pin":print "32 joint, or a non-L part.":goto 900
 3270 print:print "One page or a few: a stray write at":print "power on or off.":goto 900
 4000 rem --- each chip: 512 KB banks (blocks n*32..n*32+31), one byte each
-4010 print chr$(147)"Each chip, one at a time":print
+4010 print chr$(147)"Test all RAM pins":print
 4020 print "One byte per 512 KB chip gets walking":print "1s and 0s (twice) and its own value."
 4025 print "Saved and put back. Chip names and pins":print "are for the NeoRAM Remix.":print:print "Testing...";
 4030 poke p,63:for qc=0 to 7:poke b,qc*32+31:qo(qc)=peek(w+255):qa(qc)=-1:qz(qc)=0:next
@@ -771,7 +771,7 @@ BASIC = r"""
 """
 
 
-VER = "1.3"
+VER = "1.4"
 
 
 def build(mach, org, scr, out):
